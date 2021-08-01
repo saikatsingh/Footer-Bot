@@ -34,8 +34,8 @@ async def _start(bot: Client, m: Message):
             Config.START_TEXT,
             reply_markup=InlineKeyboardMarkup(
                 [
-                    [InlineKeyboardButton("Support Group", url="https://t.me/DevsZone"), InlineKeyboardButton("Bots Channel", url="https://t.me/Discovery_Updates")],
-                    [InlineKeyboardButton("Developer - @AbirHasan2005", url="https://t.me/AbirHasan2005")]
+                    [InlineKeyboardButton("Movie Group", url="https://t.me/MoviZeniX"), InlineKeyboardButton("Updates Channel", url="https://t.me/MoviZenX")],
+                    [InlineKeyboardButton("Developer - Saikat", url="https://t.me/AnnihilusOP")]
                 ]
             ),
             quote=True
@@ -203,7 +203,7 @@ async def callback_handlers(bot: Client, cb: CallbackQuery):
                                 UserClient = await bot.get_chat_member(chat_id=event_.forward_from_chat.id, user_id=(await bot.get_me()).id)
                                 if UserClient.can_edit_messages is True:
                                     await db.set_channel_id(cb.from_user.id, channel_id=event_.forward_from_chat.id)
-                                    await cb.message.edit("Successfully Added Channel to Database!", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Go To Settings", callback_data="showSettings")]]))
+                                    await cb.message.edit("Noice, Successfully Added Channel to Database!", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Go To Settings", callback_data="showSettings")]]))
                                 else:
                                     await cb.message.edit("Sorry Unkil,\nYou don't have rights to Edit Messages on this Channel!")
                             except:
@@ -215,7 +215,7 @@ async def callback_handlers(bot: Client, cb: CallbackQuery):
                 except UserNotParticipant:
                     await cb.message.edit("Unable to Add Channel in Database!\nI am not Admin in Channel.")
                 except Exception as err:
-                    await cb.message.edit(f"Unable to Find Channel!\n\n**Error:** `{err}`", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Support Group", url="https://t.me/DevsZone")]]))
+                    await cb.message.edit(f"Unable to Find Channel!\n\n**Error:** `{err}`", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Movie Group", url="https://t.me/MoviZeniX")]]))
             elif event_.text and (event_.text == "/cancel"):
                 await cb.message.edit("Process Cancelled!")
         except TimeoutError:
